@@ -4,6 +4,7 @@ from datetime import datetime
 
 def seed_database():
     with app.app_context():
+        db.drop_all()
         db.create_all()
         Favorite.query.delete()
         Character.query.delete()
@@ -134,7 +135,7 @@ def seed_database():
         a_new_hope.planets.append(alderaan)
         
         print("Creating favorites...")
-        # Create some favorites
+      
         luke_fav_vader = Favorite(
             user_id=luke.id,
             item_type='character',
