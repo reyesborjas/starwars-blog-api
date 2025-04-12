@@ -4,7 +4,7 @@ from datetime import datetime
 
 def seed_database():
     with app.app_context():
-        # First, let's clean existing data
+      
         Favorite.query.delete()
         Character.query.delete()
         Planet.query.delete()
@@ -32,7 +32,7 @@ def seed_database():
         )
         
         print("Creating planets...")
-        # Create planets
+        
         tatooine = Planet(
             name="Tatooine",
             rotation_period=23,
@@ -60,7 +60,7 @@ def seed_database():
         )
         
         print("Creating characters...")
-        # Create characters
+       
         luke_character = Character(
             name="Luke Skywalker",
             height=172.0,
@@ -98,7 +98,7 @@ def seed_database():
         )
         
         print("Creating film...")
-        # Create film
+        
         a_new_hope = Film(
             title="A New Hope",
             episode_id=4,
@@ -108,7 +108,7 @@ def seed_database():
             release_date=datetime(1977, 5, 25)
         )
         
-        # Add everything to the session
+        
         db.session.add(luke)
         db.session.add(leia)
         db.session.add(tatooine)
@@ -118,15 +118,15 @@ def seed_database():
         db.session.add(vader)
         db.session.add(a_new_hope)
         
-        # Commit to create these records and get their IDs
+       
         db.session.commit()
         
         print("Setting up relationships...")
-        # Set up relationships
+       
         luke_character.homeworld = tatooine
         leia_character.homeworld = alderaan
         
-        # Add characters and planets to film
+       
         a_new_hope.characters.append(luke_character)
         a_new_hope.characters.append(leia_character)
         a_new_hope.characters.append(vader)
@@ -157,7 +157,7 @@ def seed_database():
         db.session.add(luke_fav_tatooine)
         db.session.add(leia_fav_alderaan)
         
-        # Final commit
+       
         db.session.commit()
         
         print("Database seeded successfully!")
