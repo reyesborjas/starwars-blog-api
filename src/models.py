@@ -138,7 +138,7 @@ class Film(db.Model):
     release_date = db.Column(db.DateTime, nullable=True)
     
     characters = db.relationship("Character", secondary=character_films, back_populates="films")
-    planets = db.relationship("Planet", secondary=planet_films, back_populates="planets")
+    planets = db.relationship("Planet", secondary=planet_films, back_populates="films")
 
     def __repr__(self):
         return f'<Film {self.title}>'

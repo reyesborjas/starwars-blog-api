@@ -4,7 +4,7 @@ from datetime import datetime
 
 def seed_database():
     with app.app_context():
-      
+        db.create_all()
         Favorite.query.delete()
         Character.query.delete()
         Planet.query.delete()
@@ -12,7 +12,7 @@ def seed_database():
         User.query.delete()
         
         print("Creating test users...")
-        # Create test users
+        
         luke = User(
             username="luke_skywalker",
             email="luke@rebellion.org",
