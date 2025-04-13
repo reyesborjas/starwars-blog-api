@@ -5,7 +5,7 @@ from datetime import datetime
 
 db = SQLAlchemy()
 
-# Association tables for many-to-many relationships
+
 character_films = db.Table('character_films',
     db.Column('character_id', db.Integer, db.ForeignKey('character.id'), primary_key=True),
     db.Column('film_id', db.Integer, db.ForeignKey('film.id'), primary_key=True)
